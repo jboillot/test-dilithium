@@ -1,0 +1,15 @@
+{
+  "name": "test-dilithium",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "Jérôme Boillot <me@jerome-boillot.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@dashlane/pqc-sign-dilithium5-node": "^1.0.0"
+  }
+}
