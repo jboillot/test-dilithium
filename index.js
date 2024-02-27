@@ -14,7 +14,7 @@ async function run() {
     console.log('pk');
     console.log(Buffer.from(publicKey).toString('base64'));
     console.log('message');
-    console.log(Buffer.from(message).toString('base64'));
+    console.log(Buffer.from(message).toString('ascii'));
     console.log('signature');
     console.log(Buffer.from(signature).toString('base64'));
     console.log('sk');
@@ -42,7 +42,7 @@ async function run() {
     const pGpubUint8Array = Uint8Array.from(atob(pGpub), char => char.charCodeAt(0));
     const pGprivUint8Array = Uint8Array.from(atob(pGpriv), char => char.charCodeAt(0));
     const pGsignUint8Array = Uint8Array.from(atob(pGsign), char => char.charCodeAt(0));
-    const pGmessageUint8Array = Uint8Array.from(atob(pGMessage), char => char.charCodeAt(0));
+    const pGmessageUint8Array = Uint8Array.from(Array.from(pGMessage).map(letter => letter.charCodeAt(0)));
 
     const nodeReVerified = await sign.verify(
         pGsignUint8Array,
